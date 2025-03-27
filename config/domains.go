@@ -8,9 +8,8 @@ import (
 var DomainConfig Domain
 
 type Domain struct {
-	ApiHost        string
-	FrontendHost   string
-	MonitoringHost string
+	ApiHost      string
+	FrontendHost string
 }
 
 func loadDomainConfig() error {
@@ -26,16 +25,9 @@ func loadDomainConfig() error {
 		return errors.New("FRONTEND_HOST not set in .env")
 	}
 
-	monitoringHost, exist := os.LookupEnv("MONITORING_HOST")
-
-	if !exist {
-		return errors.New("MONITORING_HOST not set in .env")
-	}
-
 	DomainConfig = Domain{
-		ApiHost:        apiHost,
-		FrontendHost:   frontendHost,
-		MonitoringHost: monitoringHost,
+		ApiHost:      apiHost,
+		FrontendHost: frontendHost,
 	}
 
 	return nil
