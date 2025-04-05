@@ -13,8 +13,8 @@
 - [GOTP](https://github.com/ichtrojan/gotp)
 - [Go Validator](https://github.com/thedevsaddam/govalidator)
 - [Laravel Migration](https://laravel.com/docs/12.x/migrations) (I know this is crazy)
-- [Asyncq](https://github.com/hibiken/asynq)
-- [Asyncmon](https://github.com/hibiken/asynqmon)
+- [Asynq](https://github.com/hibiken/asynq)
+- [Asynqmon](https://github.com/hibiken/asynqmon)
 - [AWS SES](https://aws.amazon.com/ses)
 
 ## Usage
@@ -64,9 +64,9 @@ Very good question. In my (not-so-long) stint writing Go, I haven’t found a mi
 
 So, in the misc folder, you’ll find a super stripped-down Laravel project whose only job is to manage migrations. It’s totally optional—you can delete it and use whatever tool you're more comfortable with. It's not critical to running the template at all.
 
-### Asyncq/Asyncmon
+### Asynq/Asynqmon
 
-Asynq is available by default when you run the server. However, the Asynqmon monitoring dashboard isn’t enabled out of the box. To turn it on, set the ASYNCMON_SERVICE key to true in your .env file. After that, restart the server, and Asynqmon will be available at port 6660.
+Asynq is available by default when you run the server. However, the Asynqmon monitoring dashboard isn’t enabled out of the box. To turn it on, set the ASYNQMON_SERVICE key to true in your .env file. After that, restart the server, and Asynqmon will be available at port 6660.
 
 ## Closing remarks
 

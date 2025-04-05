@@ -57,7 +57,7 @@ func main() {
 		Handler: routes.AllRoutes(),
 	}
 
-	if config.AppConfig.AsyncmonService == "true" {
+	if config.AppConfig.AsynqmonService == "true" {
 		go func() {
 			fmt.Println("Starting Monitoring server on :6660")
 			if err := monitoring().ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
