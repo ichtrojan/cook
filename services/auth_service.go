@@ -174,7 +174,7 @@ func LoginUser(payload requests.Login) (response responses.AuthResponse, err err
 		err = mailer.EnqueueEmailTask(queue.Client, mailer.EmailPayload{
 			TemplateName: "signup_otp",
 			To:           user.Email,
-			Subject:      "OTP from Cadobook",
+			Subject:      "Signup OTP",
 			Data: map[string]interface{}{
 				"Token": otpToken,
 				"Name":  user.Name,
@@ -220,20 +220,6 @@ func VerifyUser(r *http.Request, payload requests.VerifyUser) (message map[strin
 		return nil, helpers.ServerError(err), http.StatusInternalServerError
 	}
 
-	err = mailer.EnqueueEmailTask(queue.Client, mailer.EmailPayload{
-		TemplateName: "welcome",
-		To:           user.Email,
-		Subject:      "Welcome to Cadobook",
-		Data: map[string]interface{}{
-			"Name":  user.Name,
-			"Email": user.Email,
-		},
-	})
-
-	if err != nil {
-		return nil, helpers.ServerError(err), http.StatusInternalServerError
-	}
-
 	return helpers.PrepareMessage("token verified"), nil, http.StatusOK
 }
 
@@ -258,11 +244,10 @@ func PreForgot(r *http.Request, payload requests.PreForgot) (message map[string]
 		err = mailer.EnqueueEmailTask(queue.Client, mailer.EmailPayload{
 			TemplateName: "forgot_password",
 			To:           user.Email,
-			Subject:      "Cadobook password reset",
+			Subject:      "Password reset",
 			Data: map[string]interface{}{
 				"Token": token,
 				"Email": payload.Email,
-				"Host":  config.DomainConfig.FrontendHost,
 			},
 		})
 
