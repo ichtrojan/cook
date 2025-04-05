@@ -18,21 +18,6 @@ import (
 	"time"
 )
 
-func monitoring() *http.Server {
-	monitoring := asynqmon.New(asynqmon.Options{
-		RootPath:     "/monitoring",
-		RedisConnOpt: asynq.RedisClientOpt{Addr: ":" + config.RedisConfig.Port},
-	})
-
-	router := mux.NewRouter()
-	router.PathPrefix(monitoring.RootPath()).Handler(monitoring)
-
-	return &http.Server{
-		Handler: monitoring,
-		Addr:    ":6660",
-	}
-}
-
 func main() {
 	if err := config.LoadEnvironmentVariables(); err != nil {
 		log.Fatal(err)
@@ -57,10 +42,25 @@ func main() {
 		Handler: routes.AllRoutes(),
 	}
 
+	monitoring := func() *http.Server {
+		m := asynqmon.New(asynqmon.Options{
+			RootPath:     "/monitoring",
+			RedisConnOpt: asynq.RedisClientOpt{Addr: ":" + config.RedisConfig.Port},
+		})
+
+		router := mux.NewRouter()
+		router.PathPrefix(m.RootPath()).Handler(m)
+
+		return &http.Server{
+			Handler: m,
+			Addr:    ":6660",
+		}
+	}()
+
 	if config.AppConfig.AsynqmonService == "true" {
 		go func() {
 			fmt.Println("Starting Monitoring server on :6660")
-			if err := monitoring().ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
+			if err := monitoring.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
 				serverError <- fmt.Errorf("monitoring server error: %v", err)
 			}
 		}()
@@ -100,7 +100,7 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
-	if err := monitoring().Shutdown(ctx); err != nil {
+	if err := monitoring.Shutdown(ctx); err != nil {
 		log.Printf("Asyncmon server shutdown failed: %v", err)
 	}
 
