@@ -31,9 +31,5 @@ func LoadEnvironmentVariables() error {
 		return err
 	}
 
-	if err := loadStripeConfig(); err != nil {
-		return err
-	}
-
 	return nil
 }
