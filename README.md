@@ -1,7 +1,7 @@
 # Cook
 
 > Keep Building </br>
-> <hr>Sir Cook alot (2025)
+> <hr>Sir Cook Alot (2025)
 
 ## What's included
 
