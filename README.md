@@ -66,7 +66,7 @@ So, in the misc folder, you’ll find a super stripped-down Laravel project whos
 
 ### Asynq/Asynqmon
 
-Asynq is available by default when you run the server. However, the Asynqmon monitoring dashboard isn’t enabled out of the box. To turn it on, set the ASYNQMON_SERVICE key to true in your .env file. After that, restart the server, and Asynqmon will be available at port `6660`.
+Asynq is available by default when you run the server. However, the Asynqmon monitoring dashboard isn’t enabled out of the box. To turn it on, set the `ASYNQMON_SERVICE` key to true in your .env file. After that, restart the server, and Asynqmon will be available at port `6660`.
 
 ## Closing remarks
 
