@@ -13,7 +13,6 @@ func GetUser(r *http.Request) (response responses.UserResponse, err error, statu
 	var user models.User
 
 	err = database.Mysql.Where("id = ?", middleware.GetUser(r.Context()).Id).
-		Preload("Businesses.Members.User").
 		Find(&user).Error
 
 	if err != nil {
