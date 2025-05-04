@@ -44,8 +44,11 @@ func main() {
 
 	monitoring := func() *http.Server {
 		m := asynqmon.New(asynqmon.Options{
-			RootPath:     "/monitoring",
-			RedisConnOpt: asynq.RedisClientOpt{Addr: ":" + config.RedisConfig.Port},
+			RootPath: "/monitoring",
+			RedisConnOpt: asynq.RedisClientOpt{
+				Addr:     config.RedisConfig.Addr,
+				Password: config.RedisConfig.Password,
+			},
 		})
 
 		router := mux.NewRouter()
@@ -77,7 +80,10 @@ func main() {
 	go func() {
 		fmt.Println("Starting Asynq worker server")
 		worker := asynq.NewServer(
-			asynq.RedisClientOpt{Addr: database.Redis.Options().Addr},
+			asynq.RedisClientOpt{
+				Addr:     config.RedisConfig.Addr,
+				Password: config.RedisConfig.Password,
+			},
 			asynq.Config{
 				Concurrency: 10,
 			},

@@ -2,7 +2,6 @@ package queue
 
 import (
 	"crypto/tls"
-	"fmt"
 	"github.com/hibiken/asynq"
 	"github.com/ichtrojan/cook/config"
 	"github.com/ichtrojan/cook/mailer"
@@ -11,10 +10,8 @@ import (
 var Client *asynq.Client
 
 func Register() *asynq.ServeMux {
-	redisAddr := fmt.Sprintf("%s:%s", config.RedisConfig.Host, config.RedisConfig.Port)
-
 	redisConnection := asynq.RedisClientOpt{
-		Addr:     redisAddr,
+		Addr:     config.RedisConfig.Addr,
 		Username: config.RedisConfig.User,
 		Password: config.RedisConfig.Password,
 	}
