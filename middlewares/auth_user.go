@@ -54,7 +54,7 @@ func AuthenticateUser(next http.Handler) http.Handler {
 
 			userId := database.Redis.Get(r.Context(), "user_auth_"+tempToken).Val()
 
-			_ = database.Mysql.Where("id = ?", userId).Preload("Businesses").First(&foundUser)
+			_ = database.Mysql.Where("id = ?", userId).First(&foundUser)
 
 			if foundUser.Empty() {
 				w.Header().Set("Content-Type", "application/json")
