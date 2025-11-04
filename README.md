@@ -12,7 +12,7 @@
 - [GORM](https://gorm.io)
 - [GOTP](https://github.com/ichtrojan/gotp)
 - [Go Validator](https://github.com/thedevsaddam/govalidator)
-- [Laravel Migration](https://laravel.com/docs/12.x/migrations) (I know this is crazy)
+- [Olympian](https://github.com/ichtrojan/olympian)
 - [Asynq](https://github.com/hibiken/asynq)
 - [Asynqmon](https://github.com/hibiken/asynqmon)
 - [AWS SES](https://aws.amazon.com/ses)
@@ -58,11 +58,13 @@ You can find more details in the original documentation on the package’s GitHu
 - `array_unique_uuid`: checks that it’s an array of unique UUIDs
 - `valid_future_timestamp`: checks that it’s a valid timestamp in the future
 
-### Why do we have a laravel project in the `misc` folder?
+### Olympian for migrations
 
-Very good question. In my (not-so-long) stint writing Go, I haven’t found a migration library I actually like. I’ve tried a bunch—most of them expect you to write raw SQL like a caveman. Thing is, I came to Go after years of being pampered by Laravel's migration system.
+In my (not-so-long) stint writing Go, I haven't found a migration library I actually like. I've tried a bunch—most of them expect you to write raw SQL like a caveman. Thing is, I came to Go after years of being pampered by Laravel's migration system.
 
-So, in the misc folder, you’ll find a super stripped-down Laravel project whose only job is to manage migrations. It’s totally optional—you can delete it and use whatever tool you're more comfortable with. It's not critical to running the template at all.
+Originally, I used a stripped-down Laravel project in a `misc` folder just to handle migrations. Eventually, I built [Olympian](https://github.com/ichtrojan/olympian)—a proper Go migration tool that gives you that Laravel-style migration experience without the embedded PHP mess.
+
+It's what this template uses by default, but you can swap it out for whatever you're more comfortable with.
 
 ### Asynq/Asynqmon
 
