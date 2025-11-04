@@ -4,13 +4,14 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net/http"
+	"strings"
+
 	"github.com/golang-jwt/jwt"
 	"github.com/ichtrojan/cook/config"
 	"github.com/ichtrojan/cook/database"
 	"github.com/ichtrojan/cook/helpers"
 	"github.com/ichtrojan/cook/models"
-	"net/http"
-	"strings"
 )
 
 type userCtxKey string

@@ -4,12 +4,13 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"github.com/thedevsaddam/govalidator"
 	"net/http"
 	"net/url"
 	"reflect"
 	"regexp"
 	"time"
+
+	"github.com/thedevsaddam/govalidator"
 )
 
 func init() {

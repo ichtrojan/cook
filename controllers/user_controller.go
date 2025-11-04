@@ -2,12 +2,13 @@ package controllers
 
 import (
 	"encoding/json"
+	"net/http"
+
 	"github.com/ichtrojan/cook/helpers"
 	"github.com/ichtrojan/cook/requests"
 	"github.com/ichtrojan/cook/responses"
 	"github.com/ichtrojan/cook/services"
 	"github.com/thedevsaddam/govalidator"
-	"net/http"
 )
 
 type GetUserResponse struct {

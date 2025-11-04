@@ -2,8 +2,9 @@ package middleware
 
 import (
 	"encoding/json"
-	"github.com/ichtrojan/cook/helpers"
 	"net/http"
+
+	"github.com/ichtrojan/cook/helpers"
 )
 
 func VerifyUser(next http.Handler) http.Handler {

@@ -4,6 +4,12 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"log"
+	"net/http"
+	"os"
+	"os/signal"
+	"time"
+
 	"github.com/gorilla/mux"
 	"github.com/hibiken/asynq"
 	"github.com/hibiken/asynqmon"
@@ -11,11 +17,6 @@ import (
 	"github.com/ichtrojan/cook/database"
 	"github.com/ichtrojan/cook/queue"
 	"github.com/ichtrojan/cook/routes"
-	"log"
-	"net/http"
-	"os"
-	"os/signal"
-	"time"
 )
 
 func main() {

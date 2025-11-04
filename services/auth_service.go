@@ -4,6 +4,9 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"net/http"
+	"time"
+
 	"github.com/golang-jwt/jwt"
 	"github.com/google/uuid"
 	"github.com/ichtrojan/cook/config"
@@ -18,8 +21,6 @@ import (
 	"github.com/ichtrojan/gotp"
 	"github.com/redis/go-redis/v9"
 	"golang.org/x/crypto/bcrypt"
-	"net/http"
-	"time"
 )
 
 func RegisterUser(payload requests.Register) (response responses.AuthResponse, err error, status int) {

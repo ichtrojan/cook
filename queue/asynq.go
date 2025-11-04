@@ -2,6 +2,7 @@ package queue
 
 import (
 	"crypto/tls"
+
 	"github.com/hibiken/asynq"
 	"github.com/ichtrojan/cook/config"
 	"github.com/ichtrojan/cook/mailer"

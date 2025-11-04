@@ -2,14 +2,15 @@ package routes
 
 import (
 	"encoding/json"
+	"net/http"
+	"time"
+
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/cors"
 	"github.com/go-chi/httprate"
 	"github.com/ichtrojan/cook/controllers"
 	"github.com/ichtrojan/cook/helpers"
 	customMiddleware "github.com/ichtrojan/cook/middlewares"
-	"net/http"
-	"time"
 )
 
 func APIRoutes() *chi.Mux {

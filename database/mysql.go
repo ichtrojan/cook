@@ -2,6 +2,7 @@ package database
 
 import (
 	"fmt"
+
 	"github.com/ichtrojan/cook/config"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

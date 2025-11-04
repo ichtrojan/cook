@@ -3,9 +3,10 @@ package middleware
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/ichtrojan/cook/helpers"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/ichtrojan/cook/helpers"
 )
 
 func AcceptJson(next http.Handler) http.Handler {

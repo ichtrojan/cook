@@ -2,11 +2,12 @@ package controllers
 
 import (
 	"encoding/json"
+	"net/http"
+
 	"github.com/ichtrojan/cook/helpers"
 	"github.com/ichtrojan/cook/requests"
 	"github.com/ichtrojan/cook/services"
 	"github.com/thedevsaddam/govalidator"
-	"net/http"
 )
 
 func Register(w http.ResponseWriter, r *http.Request) {
